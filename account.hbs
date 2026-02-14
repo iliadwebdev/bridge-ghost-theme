@@ -1,0 +1,18 @@
+{{#unless @member}}
+    <script>
+        window.location.href = '{{@site.url}}/signin/';
+    </script>
+{{/unless}}
+
+{{!< default}}
+
+<main class="account">
+        <span id="account-data" class="hidden" data-description="{{#if @member.paid}}{{t "You currently have a paid membership, you can find more details in your account settings."}}{{else}}{{t "You currently have a free membership, upgrade to a paid subscription for full access."}}{{/if}}"
+        data-name="{{#if @member.name}}{{@member.name}}{{else}}{{t "Your account"}}{{/if}}"></span>
+
+        {{> "components/header" heading=(t "Your account") description=(t "You currently have a free membership, upgrade to a paid subscription for full access.") action="account"}}
+</main>
+
+<script>
+    setAccountText();
+</script>

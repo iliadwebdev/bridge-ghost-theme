@@ -1,0 +1,17 @@
+{{!< default}}
+
+<main>
+    {{#post}}
+        {{> "components/header" heading=title description=excerpt extraMargin=true}}
+    {{/post}}
+    {{#get "tags" limit="all" include='count.posts'}}
+        <section>
+            {{> "components/section-header" id="tags-header" heading=(t "Browse by tags") text=(concat tags.length " " (t "tags")) hideBottomBorder=true}}  
+            <div class="grid tags-grid">
+                {{#foreach tags}}
+                    {{> "components/tag-card" addPostNumber=true}}
+                {{/foreach}}
+            </div>            
+        </section>
+    {{/get}}
+</main>

@@ -1,0 +1,11 @@
+<div class="account-buttons">
+    <div class="primary-buttons">
+        {{#if @custom.show_subscribe_button_on_account_page}}
+            <a href="{{@site.url}}/membership/" class="button light-button fixed-width-button">{{t "Subscribe"}}</a>
+        {{/if}}
+        <button class="fixed-width-button" data-members-signout>{{t "Sign out"}}</button>
+    </div>
+    <a href="javascript:" data-portal="account">
+        <small>{{t "Account settings"}}</small>
+    </a>
+</div>

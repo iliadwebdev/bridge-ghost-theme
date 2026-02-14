@@ -1,0 +1,17 @@
+{{!< default}}
+
+<main>     
+    {{#post}}
+        {{> "components/header" heading=title description=excerpt }}
+    {{/post}}
+    {{#get "authors" limit="all" include="count.posts"}}
+        <section>
+            {{> "components/section-header" id="authors-header" heading=(t "Meet our authors") text=(concat authors.length " " (t "authors"))}}  
+            <div class="grid author-grid" id="authors-grid">
+                {{#foreach authors}}
+                    {{> "components/author-card" }}
+                {{/foreach}}
+            </div>  
+        </section>
+    {{/get}}
+</main>

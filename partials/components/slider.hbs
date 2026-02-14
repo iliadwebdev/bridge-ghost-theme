@@ -1,0 +1,21 @@
+{{!--
+    Parameters:
+    - id: String id
+    - tagsSlider: Boolean
+--}}
+
+<custom-slider class="slider" id="{{id}}">
+    <div class="slider-inner">
+        {{#if tagsSlider}}
+            {{#get "tags" limit="all"}}
+                {{#foreach tags}}
+                    {{> "components/tag-card" }}
+                {{/foreach}}
+            {{/get}}
+        {{else}}
+            {{#foreach posts}}
+                {{> "components/card" }}
+            {{/foreach}}
+        {{/if}} 
+    </div>
+</custom-slider>

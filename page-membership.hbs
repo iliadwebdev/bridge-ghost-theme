@@ -1,0 +1,60 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/membership.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/toggle-card.css"}}" />
+
+{{!< default}}
+
+{{#post}}
+    <main>
+        {{> "components/header" heading=title description=excerpt}}
+
+        {{#get "tiers"}}
+            {{#if tiers}}
+            <custom-membership class="membership-section">
+                <div class="membership-buttons">
+                    <button class="membership-button" data-inactive="true" data-tab="monthly">{{t "Monthly"}}</button>
+                    <button class="membership-button" data-tab="yearly">{{t "Yearly"}}</button>
+                </div>
+                <membership-tiers class="membership-tiers" data-inactive="true" data-tab-content="monthly">
+                    {{#foreach tiers}}
+                        {{#if @member}}
+                            {{#match type "paid"}}
+                                {{> "components/tier-card"}}
+                            {{/match}}
+                        {{else}}
+                            {{> "components/tier-card"}}
+                        {{/if}}                   
+                    {{/foreach}}
+                </membership-tiers>
+                <membership-tiers class="membership-tiers" data-tab-content="yearly">
+                    {{#foreach tiers}}
+                        {{#if @member}}
+                            {{#match type "paid"}}
+                                {{> "components/tier-card" yearly=true}}
+                            {{/match}}
+                        {{else}}
+                            {{> "components/tier-card" yearly=true}}
+                        {{/if}}
+                    {{/foreach}}
+                </membership-tiers>
+            </custom-membership>
+            {{/if}}
+        {{/get}}
+        <section id="faq-section">
+            {{> "components/section-header" id="faq-header" heading=(t "Frequently asked questions") text=(concat " " (t "questions")) }}    
+            <div class="toggles">
+                {{content}}
+            </div>
+        </section> 
+    </main>
+
+    <script>
+        var toggleQuestionNumberText = document.querySelector('#faq-header .big-text');
+        var toggleQuestionNumber = document.querySelectorAll('.kg-toggle-card').length;
+
+        if(toggleQuestionNumber != 0){
+            toggleQuestionNumberText.textContent =  toggleQuestionNumber + toggleQuestionNumberText.textContent;
+        }else{
+            document.querySelector('#faq-section').remove();
+        }
+    </script>
+{{/post}}

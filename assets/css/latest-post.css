@@ -1,0 +1,150 @@
+.latest-post {
+    display: flex;
+    border-top: 1px solid var(--text-color);
+    height: calc(55vw * var(--scale));
+}
+
+.latest-post-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(3.5vw * var(--scale)) calc(2.5vw * var(--scale));
+}
+
+.latest-post-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: calc(5vw * var(--scale));
+}
+
+.latest-post-title {
+    text-decoration: none;
+    color: inherit;
+}
+
+.latest-post-tag {
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: calc(1.6vw * var(--scale));
+}
+
+.latest-post-title:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.latest-post-tag:hover {
+    text-decoration: underline;
+}
+
+.latest-post-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.latest-post-paragraph {
+    max-width: 450px;
+    width: 100%;
+    margin-right: 32px;
+}
+
+.latest-post-image-link {
+    border-left: 1px solid var(--text-color);
+    width: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.latest-post-image-link:hover figure,
+.latest-post-image-link:hover .placeholder-svg {
+    scale: 1.05;
+}
+
+/* Styles for large desktop */
+@media (min-width: 1439px) {
+    .latest-post-paragraph {
+        max-width: calc(32vw * var(--scale));
+        margin-right: calc(2.2vw * var(--scale));
+    }
+
+    .latest-post-title:hover {
+        text-decoration-thickness: calc(0.2vw * var(--scale));
+    }
+}
+
+/* Styles for tablet */
+@media (max-width: 991px) {
+    .latest-post {
+        flex-direction: column-reverse;
+        height: auto;
+    }
+
+    .latest-post-content {
+        width: 100%;
+        padding: 58px 30px;
+    }
+
+    .latest-post-top {
+        padding-right: 42px;
+        margin-bottom: 35vw;
+    }
+
+    .latest-post-tag {
+        margin-bottom: 18px;
+    }
+
+    .latest-post-bottom {
+        column-gap: 20%;
+    }
+
+    .latest-post-paragraph {
+        max-width: 100%;
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .latest-post-image-link {
+        border-left: none;
+        border-bottom: 1px solid var(--text-color);
+        height: 70vw;
+        width: 100%;
+    }
+
+    .latest-post-title:hover, .latest-post-tag:hover {
+        text-decoration: none;
+    }
+
+    .latest-post-image-link:hover figure,
+    .latest-post-image-link:hover .placeholder-svg {
+        scale: 1;
+    }
+}
+
+@media (max-width: 479px) {
+
+    .latest-post-content {
+        height: 50%;
+        width: 100%;
+        padding: 46px 18px;
+    }
+
+    .latest-post-top {
+        padding-right: 0px;
+        margin-bottom: 40vw;
+    }
+
+    .latest-post-tag {
+        margin-bottom: 14px;
+    }
+
+    .latest-post-bottom {
+        column-gap: 18px;
+    }
+
+    .latest-post-image-link {
+        height: 100vw;
+    }
+}

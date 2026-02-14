@@ -1,0 +1,133 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/author.css"}}" />
+
+{{!< default}}
+
+
+<main>
+    {{#author}}
+        <section class="author{{#unless profile_image}} no-author-image{{/unless}}">
+            {{#if profile_image}} 
+                <div class="author-image-wrapper">                  
+                    <figure>
+                        <img
+                            srcset="{{img_url profile_image size="s"}} 300w,
+                                    {{img_url profile_image size="m"}} 720w,
+                                    {{img_url profile_image size="l"}} 960w,
+                                    {{img_url profile_image size="xl"}} 1200w,
+                                    {{img_url profile_image size="xxl"}} 2000w"
+                            src="{{img_url profile_image size="xl"}}"
+                            alt="{{#if profile_image}}{{profile_image}}{{else}}{{name}}{{/if}}"
+                        >
+                    </figure>                                              
+                </div>
+            {{/if}}
+            <div class="author-content">
+                {{#if location}}
+                    <div class="medium-text location-text">{{location}}</div>
+                {{/if}}
+
+                <h1 class="author-title" id="author-name">{{name}}</h1>
+
+                {{#if bio}}
+                    <div class="bio-text">
+                        <p>{{bio}}</p>
+                    </div>
+                {{/if}}
+
+                <div class="footer-socials-inner">
+                    {{#if facebook}}
+                        <a href="{{social_url type="facebook"}}" target="_blank" rel="noopener" class="social" aria-label="Facebook">
+                            <div class="social-inner">
+                                {{> "icons/facebook-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if twitter}}
+                        <a href="{{social_url type="twitter"}}" target="_blank" rel="noopener" class="social" aria-label="Twitter">
+                            <div class="social-inner">
+                                {{> "icons/twitter-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}               
+
+                    {{#if linkedin}}
+                        <a href="{{social_url type="linkedin"}}" target="_blank" rel="noopener" class="social" aria-label="Linkedin">
+                            <div class="social-inner">
+                                {{> "icons/linkedin-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if bluesky}}
+                        <a href="{{social_url type="bluesky"}}" target="_blank" rel="noopener" class="social" aria-label="Bluesky">
+                            <div class="social-inner">
+                                {{> "icons/bluesky-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if threads}}
+                        <a href="{{social_url type="threads"}}" target="_blank" rel="noopener" class="social" aria-label="Threads">
+                            <div class="social-inner">
+                                {{> "icons/threads-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if mastodon}}
+                        <a href="{{social_url type="mastodon"}}" target="_blank" rel="noopener" class="social" aria-label="Mastodon">
+                            <div class="social-inner">
+                                {{> "icons/mastodon-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if tiktok}}
+                        <a href="{{social_url type="tiktok"}}" target="_blank" rel="noopener" class="social" aria-label="TikTok">
+                            <div class="social-inner">
+                                {{> "icons/tiktok-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if youtube}}
+                        <a href="{{social_url type="youtube"}}" target="_blank" rel="noopener" class="social" aria-label="YouTube">
+                            <div class="social-inner">
+                                {{> "icons/youtube-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if instagram}}
+                        <a href="{{social_url type="instagram"}}" target="_blank" rel="noopener" class="social" aria-label="Instagram">
+                            <div class="social-inner">
+                                {{> "icons/instagram-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+
+                    {{#if website}}
+                        <a href="{{website}}" target="_blank" rel="noopener" class="social" aria-label="Website URL">
+                            <div class="social-inner">
+                                {{> "icons/link-icon"}}
+                            </div>
+                        </a>
+                    {{/if}}
+                </div>
+            </div>
+            <span id="author-name-data" style="display: none; width: 0px; height: 0px;" data-author-name="{{t "{name}'s work" name=name}}"></span>
+        </section>
+    {{/author}}
+
+    <section class="author-work">
+        {{> "components/section-header" id="author-stories-header" heading=name text=(concat pagination.total " " (t "posts"))}}
+        {{> "components/grid" id="authors-grid" }}
+    </section>
+</main>
+
+<script>
+    document.querySelector('#author-stories-header h2').innerText = document.querySelector('#author-name-data').getAttribute("data-author-name");
+</script>
+
+

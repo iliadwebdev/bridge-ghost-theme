@@ -1,0 +1,49 @@
+{{!--
+    Parameters:
+    - yearly: boolean
+--}}
+
+<div class="tier-card">
+    <h3>{{name}}</h3>
+    <div class="tier-price">
+        <div class="price-format">
+            {{#match currency 'USD'}}
+                $
+            {{else}}
+                {{#match currency 'EUR'}}
+                    €
+                {{else}}
+                    <h3>{{currency}}</h3>
+                {{/match}}
+            {{/match}}   
+        </div>
+        <h1>{{#if yearly}}{{price yearly_price}}{{else}}{{price monthly_price}}{{/if}}</h1>
+        <div class="tier-date">
+            <h3>{{#if yearly}}/{{t "year"}}{{else}}/{{t "month"}}{{/if}}</h3>
+        </div>
+    </div>
+    {{#if description}}
+        <div class="big-text tier-description">
+            {{description}}
+        </div>
+    {{/if}}
+    {{#if benefits}}
+        <div class="benefits-outer">
+            <ul class="benefits-container unstyled-list">
+                {{#foreach benefits}}
+                    <li class="benefits-item">
+                        <div class="benefit-square">
+                            <div class="benefit-icon">
+                                {{> "icons/check-icon"}}
+                            </div>
+                        </div>
+                        {{this}}
+                    </li>
+                {{/foreach}}       
+            </ul>
+        </div>
+    {{/if}}
+    <div class="membership-subscribe-button">
+        <a class="button wide-button" {{#match type "paid"}}href="javascript:" data-portal="signup/{{id}}/{{#if yearly}}yearly{{else}}monthly{{/if}}"{{else}}href="{{@site.url}}/signup/"{{/match}}>{{t "Subscribe now"}}</a>
+    </div> 
+</div>

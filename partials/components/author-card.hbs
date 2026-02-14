@@ -1,0 +1,40 @@
+
+<custom-card class="card" data-chars="100">
+    <a href="{{url}}" class="category-link">
+        {{#match count.posts 1}}
+            1 {{t "post"}}
+        {{else}}
+            {{count.posts}} {{t "posts"}}
+        {{/match}}                                    
+    </a>
+    <a href="{{url}}" class="card-title-link">
+        <h3>{{name}}</h3>
+    </a>
+    <a href="{{url}}" class="card-image-link">
+        {{#if profile_image}}                   
+            <figure>
+                <img
+                    srcset="{{img_url profile_image size="s"}} 300w,
+                            {{img_url profile_image size="m"}} 720w,
+                            {{img_url profile_image size="l"}} 960w,
+                            {{img_url profile_image size="xl"}} 1200w,
+                            {{img_url profile_image size="xxl"}} 2000w"
+                    src="{{img_url profile_image size="xl"}}"
+                    alt="{{#if profile_image}}{{profile_image}}{{else}}{{name}}{{/if}}"
+                >
+            </figure>                   
+        {{else}}
+            <div class="placeholder">
+                {{> "icons/placeholder" }}
+            </div>                  
+        {{/if}}
+    </a>
+    <div class="card-lower-part">
+        <div class="card-text-with-button">
+            <p class="truncate">
+                {{bio}}
+            </p>
+            {{> "icons/plus-button" pagelink=url }}
+        </div>
+    </div>
+</custom-card>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <title>{{meta_title}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="{{asset "js/global.js"}}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/global.css"}}" />
+
+     {{#match @custom.color_scheme "Light"}}
+        <style>
+            :root {
+                --background-color: #ffffff;
+                --text-color: #1b1b1b;
+                --text-60-opac: #767676;
+                --text-color-lower-opac: #a4a4a4;
+                --placeholder-color: #f5f5f5;
+            }
+        </style>
+     {{/match}}
+
+     {{#match @custom.color_scheme "Dark"}}
+        <style>
+            :root {
+                --background-color: #080808;
+                --text-color: #ffffff;
+                --text-60-opac: #9c9c9c;
+                --text-color-lower-opac: #6b6b6b;
+                --placeholder-color: #393939;
+            }
+        </style>
+     {{/match}}
+
+     {{#match @custom.color_scheme "Elegant"}}
+        <style>
+            :root {
+                --background-color: #F2F1EF;
+                --text-color: #472419;
+                --text-60-opac: #8c766f;
+                --text-color-lower-opac: #ad9f99;
+                --placeholder-color: #e1ddda;
+            }
+        </style>
+     {{/match}}
+
+     <style>
+        :root{
+            --font1: var(--gh-font-heading, 'Butler');
+            --font2: var(--gh-font-body, 'Montserrat');
+            --font3: var(--gh-font-body, 'Roboto');
+            --logo-scale: {{@custom.logo_scale}};
+            --heading-one-scale: {{@custom.heading_one_scale}};
+        }
+
+        @media (min-width: 1920px) {
+            :root{
+                --scale: {{@custom.content_scale_on_extra_large_devices}};
+            }
+        }
+     </style>
+
+    {{!-- Always last --}}
+     {{ghost_head}}
+</head>
+<body>
+<div class="viewport">
+    <div class="site-content">
+        {{> "components/navbar" }}
+        <div class="site-main">
+            {{{body}}}
+            {{> "components/footer" }}
+        </div>
+    </div>
+</div>
+
+{{> "components/notifications"}}
+
+{{!-- Demo content --}}
+{{#match @site.url "http://localhost:2368"}}
+    <script>
+        setDemoColorSchemes();
+    </script>
+{{/match}}
+
+{{#match @site.url "https://zenith-demo.kusa-projects.com"}}
+    <script>
+        setDemoColorSchemes();
+    </script>
+{{/match}}
+
+<script src="{{asset "js/custom-elements.js"}}"></script>
+
+{{!-- Always last --}}
+{{ghost_foot}}
+</body>
+</html>

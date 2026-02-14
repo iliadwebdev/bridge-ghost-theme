@@ -1,0 +1,11 @@
+{{!--
+    Parameters:
+    - pagelink: Anchor URL
+--}}
+
+{{#if @custom.show_plus_buttons }}
+    <a class="plus-button" href="{{pagelink}}" aria-label="link to: {{pagelink}}">
+        <div class="vertical-line"></div>
+        <div class="horizontal-line"></div>
+    </a>
+{{/if}}

@@ -1,0 +1,19 @@
+{{#if @site.members_enabled}}
+    {{#unless @site.members_invite_only}}
+        {{#unless @member}}
+            <form data-members-form="subscribe" class="subscribe-form">
+                <div class="subscribe-with-alerts">
+                    <div class="subscribe-wrapper">
+                        <input data-members-email type="email" required="true" placeholder="{{t 'Your.email@example.com'}}" class="subscribe-input"/>
+                        <button type="submit">{{t "Subscribe"}}</button>
+                    </div>
+                    <div class="subscribe-alerts">
+                        <small class="subscribe-alert loading-alert">{{t "Processing your request..."}}</small>
+                        <small class="subscribe-alert success-alert">{{t "Please check your inbox and click the link to confirm your subscription."}}</small>
+                        <small class="subscribe-alert error-alert" data-members-error></small>
+                    </div> 
+                </div>            
+            </form>
+        {{/unless}}
+    {{/unless}}
+{{/if}}

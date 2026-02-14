@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zenith - Multipurpose Ghost Theme</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="{{asset "js/global.js"}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset "css/global.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/demos.css"}}" />
+
+    <style>
+        @media (min-width: 1920px) {
+            :root{
+                --scale: {{@custom.content_scale_on_extra_large_devices}};
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="demos-main">
+    <section class="demo-text-content">
+        <div class="demo-text">
+            <div class="medium-text">
+                Ghost Theme
+            </div>
+            <h1>Zenith</h1>
+            <p>Zenith is a multipurpose Ghost theme designed to empower you in creating a truly personalized and captivating blog experience.</p>
+            <a href="https://kusa-projects.lemonsqueezy.com/checkout/buy/d79b5820-e30e-4d8e-b178-f3fafa805b91" class="button demo-button wide-button">Buy now</a>
+        </div>
+        <div class="light-border left-border"></div>
+        <div class="light-border top-border"></div>
+        <div class="light-border bottom-border"></div>
+    </section>
+    <section class="demo-items-content">
+        <div class="demo-items">
+            <div class="demo-item">
+                <div class="demo-link-outer">
+                    <a href="{{@site.url}}/?color-scheme=light" class="demo-link">
+                        <img src="{{asset 'images/demo_light 1_resized-min.jpg'}}"/>
+                    </a>
+                </div>
+                <a href="{{@site.url}}/?color-scheme=light" class="medium-text demo-text-link">Light version</a>
+            </div>
+
+            <div class="demo-item">
+                <div class="demo-link-outer">
+                    <a href="{{@site.url}}/?color-scheme=dark" class="demo-link">
+                        <img src="{{asset 'images/demo_dark 1_resized-min.jpg'}}"/>
+                    </a>
+                </div>
+                <a href="{{@site.url}}/?color-scheme=dark" class="medium-text demo-text-link">Dark version</a>
+            </div>
+
+            <div class="demo-item">
+                <div class="demo-link-outer">
+                    <a href="{{@site.url}}/?color-scheme=elegant" class="demo-link">
+                        <img src="{{asset 'images/demo_elegant 1_resized-min.jpg'}}"/>
+                    </a>
+                </div>
+                <a href="{{@site.url}}/?color-scheme=elegant" class="medium-text demo-text-link">Elegant version</a>
+            </div>
+        </div>
+        <div class="dark-border top-border"></div>
+        <div class="dark-border bottom-border show-on-mobile"></div>
+    </section>
+</main>
+</body>
+</html>

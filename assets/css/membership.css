@@ -1,0 +1,283 @@
+.membership-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.membership-buttons {
+    display: flex;
+    width: 33.3333%;
+}
+
+.membership-button {
+    width: 50%;
+    border-bottom: none;
+}
+
+.membership-button[data-inactive="true"] {
+    background-color: var(--background-color);
+    color: var(--text-color-lower-opac);
+}
+
+.membership-tiers {
+    width: 100%;
+}
+
+.membership-tiers[data-inactive="true"] {
+    display: none;
+}
+
+.tier-card {
+    width: 33.3333%;
+    padding: calc(4.8vw * var(--scale)) calc(2.6vw * var(--scale));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.membership-row .tier-card:nth-child(2){
+    border-right: 1px solid var(--text-color);
+    border-left: 1px solid var(--text-color);
+}
+
+.membership-full-border {
+    border-right: 1px solid var(--text-color);
+    border-left: 1px solid var(--text-color);
+}
+
+.membership-left-border {
+    border-left: 1px solid var(--text-color);
+}
+
+.tier-price {
+    position: relative;
+    margin-top: calc(1.5vw * var(--scale));
+}
+
+.tier-price h1 {
+    font-weight: 500;
+}
+
+.price-format {
+    font-size: calc(3.75vw * var(--scale));
+    line-height: 110%;
+    font-family: var(--font1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-120%) translateY(15%);
+    font-weight: 300;
+}
+
+.tier-date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(95%) translateY(-25%);
+    font-weight: 300;
+}
+
+.tier-description {
+    font-weight: 500;
+    margin-top: calc(1vw * var(--scale));
+}
+
+.benefits-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(2.4vw * var(--scale));
+    border-top: 1px solid var(--text-color-lower-opac);
+    width: 100%;
+}
+
+.benefits-container {
+    text-align: left;
+    padding-top: calc(1.4vw * var(--scale));
+}
+
+.benefits-item {
+    margin-bottom: 0;
+    line-height: 130%;
+    margin-top: calc(1.9vw * var(--scale));
+    display: flex;
+    align-items: center;
+}
+
+.benefit-square {
+    background-color: var(--text-color);
+    width: calc(1.67vw * var(--scale));
+    min-width: calc(1.67vw * var(--scale));
+    height: calc(1.67vw * var(--scale));
+    margin-right: calc(1vw * var(--scale));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.benefit-icon {
+    min-width: calc(1.1vw * var(--scale));
+    width: calc(1.1vw * var(--scale));
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.membership-subscribe-button {
+    margin-top: auto;
+    padding-top: calc(8.5vw * var(--scale));
+}
+
+.membership-row {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--text-color);
+}
+
+.kg-toggle-card {
+    padding: calc(2.6vw * var(--scale)) calc(2.5vw * var(--scale)) !important;
+    border-top: 1px solid var(--text-color) !important;
+    border-bottom: none !important;
+}
+
+.kg-toggle-card:nth-child(1) {
+    border-top: none !important;
+}
+
+/* Styles for tablet */
+@media (max-width: 991px) {
+    .membership-buttons {
+        width: 100%;
+    }
+    
+    .membership-button {
+        width: 50%;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .tier-card {
+        width: 100%;
+        padding: 88px 30px;
+        border-top: 1px solid var(--text-color);
+    }
+    
+    .membership-row .tier-card:nth-child(2){
+        border-right: none;
+        border-left: none;
+    }
+    
+    .membership-full-border {
+        border-right: none;
+        border-left: none;
+    }
+    
+    .membership-left-border {
+        border-left: none;
+    }
+    
+    .tier-price {
+        margin-top: 25px;
+    }
+    
+    .tier-price h1 {
+        font-size: calc(20vw * var(--heading-one-scale));
+    }
+    
+    .price-format {
+        font-size: 38px;
+    }
+    
+    .tier-date {
+        transform: translateX(95%) translateY(0%);
+        bottom: 8px;
+    }
+    
+    .tier-description {
+        width: 100%;
+        max-width: 440px;
+        margin-top: 20px;
+    }
+    
+    .benefits-outer {
+        max-width: 440px;
+        width: 100%;
+        margin-top: 32px;
+    }
+    
+    .benefits-container {
+        padding-top: 14px;
+    }
+    
+    .benefits-item {
+        margin-top: 22px;
+    }
+    
+    .benefit-square {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        margin-right: 10px;
+    }
+    
+    .benefit-icon {
+        min-width: 14px;
+        width: 14px;
+    }
+    
+    .membership-subscribe-button {
+        padding-top: 85px;
+    }
+    
+    .membership-row {
+        border-top: none;
+    }
+
+    .kg-toggle-card {
+        padding: 32px 30px !important;
+    }
+}
+
+/* Styles for mobile */
+@media (max-width: 479px) {
+    .tier-card {
+        padding: 48px 18px;
+    }
+    
+    .tier-price h1 {
+        font-size: calc(30vw * var(--heading-one-scale));
+    }
+    
+    .price-format {
+        font-size: 32px;
+    }
+    
+    .benefits-item {
+        margin-top: 20px;
+    }
+    
+    .benefit-square {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+    
+    .benefit-icon {
+        min-width: 12px;
+        width: 12px;
+    }
+    
+    .membership-subscribe-button {
+        padding-top: 78px;
+    }
+
+    .kg-toggle-card {
+        padding: 22px 18px !important;
+    }
+}

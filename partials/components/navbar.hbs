@@ -1,0 +1,93 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/navbar.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/section-header.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/card.css"}}" />
+
+
+<custom-header id="header" data-content-api-key="{{@custom.content_api_key_for_custom_search}}">
+    <div class="menu" isopen="false">
+        <div class="menu-top">
+            <a class="mobile-logo" href="{{@site.url}}">
+                {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                {{else}}
+                    <div class="logo-text">
+                        {{@site.title}}
+                    </div>                       
+                {{/if}}
+            </a>
+            <div class="menu-and-search-wrapper">
+                <button class="search-icon-wrapper-mobile" {{#unless @custom.content_api_key_for_custom_search}}data-ghost-search{{/unless}} aria-label="Search button">
+                    {{> "icons/search" }}
+                </button>
+                <button class="menu-button" aria-label="Menu button">
+                    <div class="menu-line first-line"></div>
+                    <div class="menu-line mobile-line"></div>
+                    <div class="menu-line second-line"></div>
+                </button>
+            </div>
+        </div>
+        <div class="menu-content">
+            <div class="menu-links">
+                {{navigation}}
+            </div>
+            {{#if @site.members_enabled}}
+                <div class="mobile-menu-cta">
+                    {{#unless @member}}
+                        <a href="{{@site.url}}/signin/" class="{{#unless @site.members_invite_only}}light-button{{/unless}} signin-button button">{{t "Sign in"}}</a>
+                        {{#unless @site.members_invite_only}}
+                            <a href="{{@site.url}}/signup/" class="button">{{t "Subscribe"}}</a>
+                        {{/unless}}
+                    {{else}}
+                        <a href="{{@site.url}}/account/" class="button">{{t "Account"}}</a>
+                    {{/unless}} 
+                </div>
+            {{/if}}
+            <div class="sidebar">
+                <a class="logo" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{else}}
+                        <div class="logo-text">
+                            {{@site.title}}
+                        </div>                       
+                    {{/if}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="search-bar-wrapper">
+            <input type="text" class="search-input" placeholder="{{t 'Search'}}" {{#unless @custom.content_api_key_for_custom_search}}data-ghost-search{{/unless}} />
+            <div class="search-icon-wrapper">
+                <span class="search-icon-open">
+                    {{> "icons/search" }}
+                </span>
+                <span class="search-icon-close">
+                    <div class="search-icon-close-line"></div>
+                    <div class="search-icon-close-line search-icon-close-line-second"></div>
+                </span>
+            </div>
+        </div>
+        {{#if @site.members_enabled}}
+            {{#unless @member}}
+                <a href="{{@site.url}}/signin/" class="{{#unless @site.members_invite_only}}light-button{{/unless}} signin-button navbar-button button">{{t "Sign in"}}</a>
+                {{#unless @site.members_invite_only}}
+                    <a href="{{@site.url}}/signup/" class="signin-button button navbar-button">{{t "Subscribe"}}</a>
+                {{/unless}}
+            {{else}}
+                <a href="{{@site.url}}/account/" class="navbar-button button">{{t "Account"}}</a>
+            {{/unless}} 
+        {{/if}}
+    </div>
+    <div class="blur"></div>
+
+    {{#if @custom.content_api_key_for_custom_search}}
+        <div class="custom-search" isopen="false">
+            {{> "components/section-header" id="custom-search-header" heading='' text=(t "0 results") }}
+            <div class="grid tags-grid">
+                
+            </div>
+        </div>
+    {{/if}}
+     <span id="navbar-texts" style="display: none; width: 0px; height: 0px;" data-no-results="{{t '0 results'}}" data-results="{{t 'results'}}"></span>
+</custom-header>

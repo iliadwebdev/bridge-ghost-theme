@@ -1,0 +1,7 @@
+<custom-pagination>
+    <nav>
+        {{#if next}}
+            <button id="load-more-btn" data-current-page="1" class="pagination-button button" style="display: {{#if pagination.next}}block{{else}}none{{/if}}">{{t "Load more"}}</button>
+        {{/if}}
+    </nav>
+</custom-pagination>

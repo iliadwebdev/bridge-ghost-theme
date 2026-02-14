@@ -1,0 +1,14 @@
+{{!< default}}
+
+<main>
+    <section>
+        {{#tag}}
+            {{> "components/header" heading=name description=description }}
+        {{/tag}}
+    </section>
+
+    <section>
+        {{> "components/section-header" id="tag-stories-header" heading=(t "Latest stories") text=(concat pagination.total " " (t "posts"))}}
+        {{> "components/grid" id="tag-stories-grid" }}         
+    </section>
+</main>

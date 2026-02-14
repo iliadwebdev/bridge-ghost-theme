@@ -1,0 +1,29 @@
+{{!< default}}
+
+<main>
+    {{> "components/header" heading=@custom.homepage_title description=@site.description action="email"}}
+    {{> "components/latest-post" }}
+    
+    {{#get "posts" filter="featured:true" include="tags" limit="6"}}
+        {{#if posts}}
+            <section class="featured-stories">       
+                {{> "components/section-header" id="featured-stories-slider-controller" heading=(t "Featured stories") isSlider=true }}
+                {{> "components/slider" id="featured-stories-slider" }}
+            </section>
+        {{/if}}
+    {{/get}}
+
+    <section class="latest-stories">
+        {{> "components/section-header" id="latest-stories-header" heading=(t "Latest stories") text=(concat pagination.total " " (t "posts")) }}
+        {{> "components/grid" id="latest-stories-grid" }}
+    </section>
+    
+    {{#get "tags" limit="all"}}
+        {{#if tags}}
+            <section class="browse-by-tags">
+                {{> "components/section-header" id="browse-by-tags-slider-controller" heading=(t "Browse by tags") isSlider=true hideBottomBorder=true }}
+                {{> "components/slider" id="browse-by-tags-slider" tagsSlider=true }}
+            </section>
+        {{/if}}
+    {{/get}}
+</main>

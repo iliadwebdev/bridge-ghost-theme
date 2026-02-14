@@ -1,0 +1,112 @@
+.author {
+    display: flex;
+    align-items: center;
+}
+
+.author-image-wrapper {
+    width: calc(43vw * var(--scale));
+    min-width: calc(43vw * var(--scale));
+    height: 90vh;
+    border-right: 1px solid var(--text-color);
+}
+
+.author-content {
+    padding: calc(2.7vw * var(--scale));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}
+
+.location-text {
+    margin-bottom: calc(1vw * var(--scale));
+}
+
+.author-title {
+    line-height: 100%;
+    font-size: calc(6.25vw * var(--scale) * var(--heading-one-scale));
+}
+
+.bio-text {
+    margin-top: calc(1.8vw * var(--scale));
+    max-width: calc(46vw * var(--scale));
+}
+
+.no-author-image {
+    text-align: center;
+    justify-content: center;
+}
+
+.no-author-image .author-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for tablet */
+@media (max-width: 991px) {
+    .author-title {
+        font-size: calc(58px * var(--heading-one-scale));
+    }
+
+    .author {
+        flex-direction: column-reverse;
+    }
+
+    .author-image-wrapper {
+        width:100%;
+        height: 70vw;
+        border-right: none;
+        border-top: 1px solid var(--text-color);
+        border-bottom: none;
+    }
+    
+    .author-content {
+        width: 100%;
+        height: auto;
+        padding: 80px 30px 56px 30px;
+    }
+    
+    .location-text {
+        margin-bottom: 10px;
+    }
+    
+    .bio-text {
+        margin-top: 18px;
+        max-width: 100%;
+    }
+
+    .no-author-image {
+        text-align: left;
+        justify-content: flex-start;
+    }
+    
+    .no-author-image .author-content {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+/* Styles for mobile */
+@media (max-width: 479px) {
+    .author-title {
+        font-size: calc(42px * var(--heading-one-scale));
+    }
+
+    .author-image-wrapper {
+        height: 100vw;
+    }
+    
+    .author-content {
+        padding: 70px 18px 46px 18px;
+    }
+    
+    .location-text {
+        margin-bottom: 8px;
+    }
+    
+    .bio-text {
+        margin-top: 16px;
+    }
+}

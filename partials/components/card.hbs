@@ -1,0 +1,40 @@
+<custom-card class="card" data-chars="100">
+    <div class="card-link-category-link">
+        <a href="{{primary_tag.url}}" class="category-link">{{primary_tag.name}}</a>
+        {{#unless access}}
+            <div class="restricted-access-icon">
+                {{> "icons/lock-icon" }}
+            </div>
+        {{/unless}}
+    </div>
+    <a href="{{url}}" class="card-title-link">
+        <h3>{{title}}</h3>
+    </a>
+    <a href="{{url}}" class="card-image-link">
+        {{#if feature_image}}                   
+            <figure>
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 720w,
+                            {{img_url feature_image size="l"}} 960w,
+                            {{img_url feature_image size="xl"}} 1200w,
+                            {{img_url feature_image size="xxl"}} 2000w"
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                >
+            </figure>                   
+        {{else}}
+            <div class="placeholder">
+                {{> "icons/placeholder" }}
+            </div>                  
+        {{/if}}
+    </a>
+    <div class="card-lower-part">
+        <div class="card-text-with-button">
+            <p class="truncate">
+                {{excerpt}}
+            </p>
+            {{> "icons/plus-button" pagelink=url }}
+        </div>
+    </div>
+</custom-card>

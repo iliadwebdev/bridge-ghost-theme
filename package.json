@@ -1,0 +1,161 @@
+{
+  "name": "zenith",
+  "description": "Zenith is a multipurpose Ghost theme designed to empower you in creating a truly personalized and captivating blog experience.",
+  "demo": "https://zenith-demo.kusa-projects.com/",
+  "version": "2.1.3",
+  "private": true,
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "scripts": {
+    "deploy": "./deploy.sh",
+    "deploy:rsync": "./deploy-rsync.sh",
+    "deploy:interactive": "./deploy-interactive.sh",
+    "deploy:manual": "./deploy-manual.sh"
+  },
+  "author": {
+    "name": "KUSA Projects",
+    "email": "kusaprojects.agency@gmail.com",
+    "url": "https://www.kusa-projects.com/"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Blog",
+      "Magazine"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "docs": "https://www.kusa-projects.com/zenith-documentation/",
+  "config": {
+    "posts_per_page": 6,
+    "image_sizes": {
+      "xs": {
+        "width": 150
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 720
+      },
+      "l": {
+        "width": 960
+      },
+      "xl": {
+        "width": 1200
+      },
+      "xxl": {
+        "width": 2000
+      }
+    },
+    "card_assets": {
+      "exclude": [
+        "toggle",
+        "button",
+        "header",
+        "blockquote",
+        "signup"
+      ]
+    },
+    "custom": {
+      "color_scheme": {
+        "type": "select",
+        "options": [
+          "Light",
+          "Dark",
+          "Elegant"
+        ],
+        "default": "Light"
+      },
+      "homepage_title": {
+        "type": "text",
+        "default": "We are Zenith"
+      },
+      "heading_one_scale": {
+        "type": "select",
+        "options": [
+          "0.6",
+          "0.65",
+          "0.7",
+          "0.75",
+          "0.8",
+          "0.85",
+          "0.9",
+          "0.95",
+          "1"
+        ],
+        "default": "1"
+      },
+      "show_plus_buttons": {
+        "type": "boolean",
+        "default": true
+      },
+      "logo_scale": {
+        "type": "select",
+        "options": [
+          "0.2",
+          "0.4",
+          "0.6",
+          "0.8",
+          "1",
+          "1.2",
+          "1.4",
+          "1.6",
+          "1.8",
+          "2",
+          "2.4",
+          "2.8",
+          "3.2",
+          "3.6",
+          "4"
+        ],
+        "default": "1"
+      },
+      "show_subscribe_button_on_account_page": {
+        "type": "boolean",
+        "default": true
+      },
+      "center_align_footer_links": {
+        "type": "boolean",
+        "default": false
+      },
+      "linkedin_url": {
+        "type": "text",
+        "default": ""
+      },
+      "instagram_url": {
+        "type": "text",
+        "default": ""
+      },
+      "content_scale_on_extra_large_devices": {
+        "type": "select",
+        "options": [
+          "0.6",
+          "0.7",
+          "0.8",
+          "0.9",
+          "1"
+        ],
+        "default": "0.8"
+      },
+      "narrow_post_header": {
+        "type": "boolean",
+        "default": false,
+        "group": "post"
+      },
+      "formspree_hash_id": {
+        "type": "text",
+        "default": "xxxxxxxx"
+      },
+      "content_api_key_for_custom_search": {
+        "type": "text",
+        "default": ""
+      }
+    }
+  }
+}

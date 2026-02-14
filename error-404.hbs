@@ -1,0 +1,14 @@
+{{!< default}}
+
+<main>
+    {{> "components/header" heading="404" description=(t "Page not found. The page you are looking for doesn't exist or has been moved.") fullScreen=true action="404"}}
+</main>
+
+<style>
+    .hero-content {
+        padding-bottom: 4vh;
+    }
+</style>
+
+{{!-- This fixes the error: center_align_footer_links is not being used in the theme --}}
+{{#if @custom.center_align_footer_links}}{{/if}}

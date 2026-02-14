@@ -1,0 +1,67 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/related-card.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/post-content.css"}}" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/toggle-card.css"}}" />
+
+{{!< default}}
+
+{{#post}}
+    <main>
+    {{> "components/article" isPost=true}}
+    </main>
+{{/post}}
+
+<script>
+    copyUrlToClipboard("post-share-icons");
+ 
+    window.addEventListener("load", () => {
+        const iframe = document.querySelector('#ghost-comments-root iframe');
+        if(!iframe) return;
+        
+        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        var targetHead = iframe.contentDocument.head;
+
+        var newLink = document.createElement("link");
+        newLink.setAttribute("rel", "stylesheet");
+        newLink.setAttribute("type", "text/css");
+        newLink.setAttribute("href", "{{asset 'css/comments.css'}}");
+
+        var font2 = document.createElement("link");
+        font2.setAttribute("rel", "stylesheet");
+        font2.setAttribute("href", "https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+        var font3 = document.createElement("link");
+        font3.setAttribute("rel", "stylesheet");
+        font3.setAttribute("href", "https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+        let section = iframeDoc.querySelector('section');
+        section.id = "comments-section"
+
+        const rootStyles = getComputedStyle(document.documentElement);
+
+        //initial variables
+        iframeDoc.documentElement.style.setProperty('--scale', rootStyles.getPropertyValue('--scale'))
+        iframeDoc.documentElement.style.setProperty('--text-color', rootStyles.getPropertyValue('--text-color'))
+        iframeDoc.documentElement.style.setProperty('--text-60-opac', rootStyles.getPropertyValue('--text-60-opac'))
+        iframeDoc.documentElement.style.setProperty('--background-color', rootStyles.getPropertyValue('--background-color'))
+
+        iframeDoc.documentElement.style.setProperty('--font1', rootStyles.getPropertyValue('--font1'))
+        iframeDoc.documentElement.style.setProperty('--font2', rootStyles.getPropertyValue('--font2'))
+        iframeDoc.documentElement.style.setProperty('--font3', rootStyles.getPropertyValue('--font3'))
+
+        window.addEventListener('resize', () => {
+            iframeDoc.documentElement.style.setProperty('--scale', rootStyles.getPropertyValue('--scale')) 
+        })
+
+        targetHead.appendChild(newLink);
+        targetHead.appendChild(font2);
+        targetHead.appendChild(font3);
+
+        const linkElement = document.querySelector('link[href*="fonts.bunny.net/css"]');       
+
+        if(linkElement){   
+            let clone = linkElement.cloneNode(true);        
+            targetHead.appendChild(clone);
+        }
+    });
+</script>

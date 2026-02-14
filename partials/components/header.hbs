@@ -1,0 +1,49 @@
+{{!--
+    Parameters:
+    - heading: Heading text
+    - description: Text description 
+    - action: Email, Buttons etc.
+    - extraMargin: Extra description top margin
+    - fullScreen: Boolean
+--}}
+
+<section class="hero {{#if fullScreen}}full-screen{{/if}}">
+    <div class="hero-content">
+        <div class="heading-1-wrapper">
+            <h1>{{heading}}</h1>
+        </div>
+        {{#if description}}
+            <div class="hero-description-wrapper {{#if extraMargin}}extra-top-margin{{/if}}">
+                <p>
+                    {{description}}
+                </p>           
+            </div>
+        {{/if}}
+
+        {{#if action}}
+            <div class="action-wrapper">
+                {{#match action "email"}}
+                    {{> "components/subscribe" }}
+                {{/match}}
+                {{#match action "account"}}
+                    {{> "components/account-buttons" }}
+                {{/match}}
+                {{#match action "signin"}}
+                    {{> "components/form" action=action}}
+                {{/match}}
+                {{#match action "signup"}}
+                    {{> "components/form" action=action}}
+                {{/match}}
+                {{#match action "subscribe"}}
+                    {{> "components/form" action=action}}
+                {{/match}}
+                {{#match action "contact"}}
+                    {{> "components/contact-form"}}           
+                {{/match}}
+                {{#match action "404"}}
+                        <a href="{{@site.url}}" class="button wide-button" style="display: inline-block;">{{t "Back to homepage"}}</a>     
+                {{/match}}
+            </div>
+        {{/if}}
+    </div>
+</section>

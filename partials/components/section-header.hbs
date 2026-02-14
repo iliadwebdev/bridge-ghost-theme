@@ -1,0 +1,29 @@
+{{!--
+    Parameters:
+    - id: String id
+    - heading: Heading text
+    - text: Text description 
+    - isSlider: Boolean - shows slider arrows
+    - hideBottomBorder: Boolean
+--}}
+
+<section-header class="section-header" id="{{id}}" {{#if hideBottomBorder}}style="border-bottom: none;"{{/if}}>
+    <div class="section-header-heading-link">
+        <h2>{{heading}}</h2>
+    </div>
+
+    {{#if isSlider}}
+        <div class="section-header-arrows">
+            <button class="arrow-button unstyled-button" aria-label="Button left" name="left">
+                {{> "icons/arrow" }}
+            </button>
+            <button class="arrow-button unstyled-button" aria-label="Button right" name="right">
+                {{> "icons/arrow" }}
+            </button>
+        </div>
+    {{else}}
+        <div class="section-header-number">
+            <div class="big-text">{{text}}</div>
+        </div>
+    {{/if}}
+</section-header>

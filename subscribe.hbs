@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/forms.css"}}" />
+
+{{!< default}}
+
+{{#if @site.members_invite_only}}
+    <script>
+        window.location.href = '{{@site.url}}/signin';
+    </script>
+{{/if}}
+
+<main>
+    {{> "components/header" heading=(t "Subscribe") description=(t "Unlock full access and see the entire library of members-only content & updates.") fullScreen=true extraMargin=true action="subscribe" columnForm=true noLink=true}}
+</main>

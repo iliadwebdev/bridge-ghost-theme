@@ -1,0 +1,113 @@
+.section-header {
+    padding: calc(3.5vw * var(--scale)) calc(2.5vw * var(--scale));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--text-color);
+    border-top: 1px solid var(--text-color);
+    background-color: var(--background-color);
+}
+
+.section-header-arrows {
+    display: flex;
+    column-gap: calc(1.6vw * var(--scale));
+    align-items: center;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(5.5vw * var(--scale));
+    width: calc(5.5vw * var(--scale));
+}
+
+.arrow-button:disabled {
+    cursor: auto;
+}
+
+.arrow-button:disabled path{
+    stroke: var(--text-color-lower-opac);
+}
+
+.arrow-button[name="left"] {
+    transform: rotateZ(180deg);
+}
+
+.section-header-number {
+    margin-top: auto;
+}
+
+.section-header-link .big-text {
+    line-height: 130%;
+}
+
+.account-buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(1.4vw * var(--scale));
+    align-items: center;
+}
+
+.primary-buttons {
+    display: flex;
+    column-gap: calc(2.2vw * var(--scale));
+}
+
+/* Styles for tablet */
+@media (max-width: 991px) {
+    .section-header {
+        padding: 38px 30px;
+    }
+    
+    .section-header-arrows {
+        column-gap: 16px;
+    }
+    
+    .arrow-button {
+        min-width: 68px;
+        width: 68px;
+    }  
+
+    .section-header-number {
+        margin-left: 18px;
+        margin-bottom: 2px;
+    }
+
+    .account-buttons {
+        row-gap: 15px;
+    }
+    
+    .primary-buttons {
+        column-gap: 22px;
+    }
+}
+
+/* Styles for mobile */
+@media (max-width: 479px) {
+    .section-header {
+        padding: 30px 18px;
+    }
+    
+    .section-header-arrows {
+        margin-left: 12px;
+        column-gap: 10px;
+    }
+    
+    .arrow-button {
+        min-width: 42px;
+        width: 42px;
+    }
+    
+    .section-header-link .arrow-button {
+        display: none;
+    } 
+
+    .account-buttons {
+        row-gap: 12px;
+    }
+    
+    .primary-buttons {
+        column-gap: 20px;
+    }
+}

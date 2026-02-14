@@ -1,0 +1,10 @@
+<link rel="stylesheet" type="text/css" href="{{asset "css/forms.css"}}" />
+
+<form action="https://formspree.io/f/{{@custom.formspree_hash_id}}" method="POST" id="contactForm">
+    <div class="subscribe-wrapper column-form">
+        <input type="text" name="name" placeholder="{{t 'Your name'}}" required>
+        <input type="email" name="email" placeholder="{{t 'Your email address'}}" required>
+        <textarea name="message" placeholder="{{t 'Your message'}}" required></textarea>
+        <button class="wide-button" type="submit">{{t "Send message"}}</button>
+    </div>
+</form>

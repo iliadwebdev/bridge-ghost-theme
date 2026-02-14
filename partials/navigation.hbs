@@ -1,0 +1,18 @@
+
+{{#if isSecondary}}
+    <ul class="footer-nav" {{#if @custom.center_align_footer_links}}center{{/if}}>
+        {{#foreach navigation type="secondary" }}
+            <li class="footer-nav-{{slug}}{{#if current}} nav-current{{/if}}" data-label="{{label}}">  
+                <a class="footer-nav-link" href="{{url absolute="true"}}">{{label}}</a>
+            </li>
+        {{/foreach}}
+    </ul>
+{{else}}
+    <ul class="nav">
+        {{#foreach navigation}}
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" data-label="{{label}}">  
+                <a class="nav-link" href="{{url absolute="true"}}">{{label}}</a>
+            </li>
+        {{/foreach}}
+    </ul>
+{{/if}}
