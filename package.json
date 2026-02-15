@@ -2,13 +2,13 @@
   "name": "bridge-ghost-theme",
   "description": "Theme for The Bridge, RiverWise's community newsletter.",
   "demo": "https://bridge-demo.kusa-projects.com/",
-  "version": "2.1.14",
+  "version": "2.1.15",
   "private": true,
   "engines": {
     "ghost": ">=5.0.0"
   },
   "scripts": {
-    "deploy": "sh ./scripts/push.sh && echo 'cd ./content/themes/bridge-ghost-theme/scripts && sh clone-repo.sh' | railway ssh"
+    "deploy": "sh ./scripts/push.sh && echo 'cd ./content/themes/bridge-ghost-theme && sh ./scripts/clone-repo.sh' | railway ssh"
   },
   "gpm": {
     "type": "theme",
