@@ -15,13 +15,6 @@ echo "Copying files to current directory..."
 # Copy all files including hidden ones, overwriting existing files
 cp -rf "$TEMP_DIR"/. .
 
-# Get version from package.json
-if [ -f "package.json" ]; then
-    VERSION=$(node -p "require('./package.json').version" 2>/dev/null || echo "unknown")
-else
-    VERSION="unknown"
-fi
-
 echo "Cleaning up temporary directory..."
 rm -rf "$TEMP_DIR"
 
