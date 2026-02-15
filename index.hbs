@@ -14,10 +14,10 @@
         {{/if}}
     {{/get}}
 
-    <section class="latest-stories">
+    {{!-- <section class="latest-stories">
         {{> "components/section-header" id="latest-stories-header" heading=(t "Latest stories") text=(concat pagination.total " " (t "posts")) }}
         {{> "components/grid" id="latest-stories-grid" }}
-    </section>
+    </section> --}}
     
     {{#get "tags" limit="all"}}
         {{#if tags}}
