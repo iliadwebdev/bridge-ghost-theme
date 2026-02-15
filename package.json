@@ -2,7 +2,7 @@
   "name": "bridge-ghost-theme",
   "description": "Theme for The Bridge, RiverWise's community newsletter.",
   "demo": "https://bridge-demo.kusa-projects.com/",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "private": true,
   "engines": {
     "ghost": ">=5.0.0"
@@ -66,7 +66,7 @@
       },
       "homepage_title": {
         "type": "text",
-        "default": "We are Zenith"
+        "default": "The Bridge"
       },
       "heading_one_scale": {
         "type": "select",
