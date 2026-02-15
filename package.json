@@ -8,8 +8,7 @@
     "ghost": ">=5.0.0"
   },
   "scripts": {
-    "deploy": "echo 'sh ./content/themes/bridge-ghost-theme/scripts/clone-repo.sh' | railway ssh",
-    "remote": "echo 'cd ./content/themes/bridge-ghost-theme' | railway ssh"
+    "deploy": "sh ./scripts/push.sh && echo 'sh ./content/themes/bridge-ghost-theme/scripts/clone-repo.sh' | railway ssh"
   },
   "gpm": {
     "type": "theme",
