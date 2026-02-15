@@ -1,7 +1,8 @@
 {{!< default}}
 
 <main>
-    {{> "components/header" heading=@custom.homepage_title description=@site.description action="email"}}
+    {{!-- {{> "components/header" heading=@custom.homepage_title description=@site.description action="email"}} --}}
+    {{> "components/header" heading="The Bridge Test" description=@site.description action="email"}}
     {{> "components/latest-post" }}
     
     {{#get "posts" filter="featured:true" include="tags" limit="6"}}
