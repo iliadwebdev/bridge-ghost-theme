@@ -1,12 +1,31 @@
 #!/bin/bash
 
 # Script to automatically commit and push changes to the repository
+# Auto-increments the patch version in package.json
 
 set -e  # Exit on error
 
-# Get commit message from argument or use default with timestamp
+# Check if npm is available
+if ! command -v npm &> /dev/null; then
+    echo "Error: npm is required but not installed"
+    exit 1
+fi
+
+# Get current version
+CURRENT_VERSION=$(node -p "require('./package.json').version")
+echo "Current version: $CURRENT_VERSION"
+
+# Auto-increment patch version
+echo "Incrementing version..."
+npm version patch --no-git-tag-version
+
+# Get new version
+NEW_VERSION=$(node -p "require('./package.json').version")
+echo "New version: $NEW_VERSION"
+
+# Get commit message from argument or use default with version
 if [ -z "$1" ]; then
-    COMMIT_MSG="Update theme - $(date '+%Y-%m-%d %H:%M:%S')"
+    COMMIT_MSG="Update theme to v$NEW_VERSION"
 else
     COMMIT_MSG="$1"
 fi
@@ -27,4 +46,5 @@ echo "Pushing to remote repository..."
 git push
 
 echo "✓ Changes committed and pushed successfully"
+echo "✓ Version: $CURRENT_VERSION → $NEW_VERSION"
 echo "✓ Commit message: $COMMIT_MSG"
